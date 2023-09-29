@@ -34,7 +34,7 @@ import { CarousselComponent } from './caroussel/caroussel.component';
 
 const routes: Routes = [
   { path: 'accueil', component: AccueilComponent},
-  { path: 'detail/:id', component: DetailComponent},
+  { path: 'detail', component: DetailComponent},
   { path: 'login', component: LoginComponent},
   { path: 'inscription', component: InscriptionComponent},
   { path: 'formulaire', component: FormulaireComponent},

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ServiceService } from '../service.service';
 
 @Component({
@@ -22,11 +22,17 @@ export class DetailComponent implements OnInit {
   donnee : any;
   activeTabId = 1;
   listOffreEmploi: any;
-   constructor(private service : ServiceService,private route: ActivatedRoute) { }
+   constructor(private service : ServiceService,private route: ActivatedRoute,private router: Router) { }
  
    ngOnInit(): void {
-     this.id = this.route.snapshot.params['id'];
-     this.service.OffreEmploiById(this.id).subscribe((data)=>{
+    //  this.id = this.route.snapshot.params['id'];
+     this.route.queryParams.subscribe((params) => {
+      const selectedId = +params['id'];
+      
+      // Utilisez votre service pour vérifier si l'ID existe
+    
+    
+     this.service.OffreEmploiById(selectedId).subscribe((data)=>{
  
       this.list=data
       console.log(this.list)
@@ -37,7 +43,10 @@ export class DetailComponent implements OnInit {
           
         }
       })
-     })
+     }, err => {
+      this.router.navigate(['/accueil']);
+    })
+    });
      if(localStorage["isLogin"]){
        this.loginData=JSON.parse(localStorage["isLogin"]);
      }

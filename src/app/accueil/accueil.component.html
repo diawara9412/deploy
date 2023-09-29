@@ -139,7 +139,7 @@
                                 <div class="row p-2 bg-white border rounded mt-2 item-hover" *ngFor="let item of listOffreEmploi?.slice().reverse() | paginate: { itemsPerPage: 4, currentPage: p }" >
                                     <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" [src]="item.logo"></div>
                                     <div class="col-md-6 mt-1">
-                                        <h6  ><a [routerLink]="'/detail/' + item.id" style="color: #39569E;">{{item.nomOffre}}</a></h6>
+                                        <h6  ><a [routerLink]="['/detail']" [queryParams]="{ id: item.id }" style="color: #39569E;">{{item.nomOffre}}</a></h6>
                                         <div class="d-flex flex-row">
                                             <app-side [stars]="item.averageRating" />
                                             <div class="rating-selection">

@@ -30,10 +30,10 @@
                  
                         
                             <div class="col-12" style="margin-bottom: 10px;">
-                                <div class="row p-2 bg-white border rounded mt-2" *ngFor="let item of listAffaire?.reverse() | paginate: { itemsPerPage: 5, currentPage: p }">
+                                <div class="row p-2 bg-white border rounded mt-2" *ngFor="let item of listAffaire?.slice().reverse() | paginate: { itemsPerPage: 5, currentPage: p }">
                                     <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" [src]="item.logo"></div>
                                     <div class="col-md-6 mt-1">
-                                        <h6 [routerLink]="'/detail/' + item.id"><a  style="color: #39569E;">{{item.opportunite}}</a></h6>
+                                        <h6 [routerLink]="'/detailaff/' + item.id"><a  style="color: #39569E;">{{item.opportunite}}</a></h6>
                                         <div class="d-flex flex-row">
                                             <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
                                         </div>

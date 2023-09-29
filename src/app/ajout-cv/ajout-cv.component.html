@@ -118,12 +118,15 @@
 
                     <div class="input-field">
                         <label>Numero de telephone </label>
-                        <input formControlName="telephone" type="number" placeholder="Saisir le numero de telephone" required>
+                        <input formControlName="telephone" type="number" placeholder="Saisir le numero de telephone" required pattern="[0-9]{8}">
                         <div *ngIf="formgroup.controls.telephone.invalid && (formgroup.controls.telephone.dirty || formgroup.controls.telephone.touched) || submitted"
                         class="text-danger">
 
                             <div style="font-size: 12px;" *ngIf="formgroup.controls.telephone.errors?.['required']">
                                 Le numero de telephone est obligatoire
+                            </div>
+                            <div style="font-size: 12px;" *ngIf="formgroup.controls.telephone.errors?.['pattern']">
+                                Le numero de telephone doit contenir exactement 8 chiffres.
                             </div>
 
                     </div>

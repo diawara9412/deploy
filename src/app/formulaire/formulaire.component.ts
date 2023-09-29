@@ -135,8 +135,11 @@ export class FormulaireComponent implements OnInit {
             console.log("bien")
            
            this.loading=false
-            this.service.presentToast("Offre ajouter avec succès")
-            location.replace("/formulaire")
+            this.service.presentToast("Offre ajouter avec succès. Veuillez attendre la confirmation de l'administrateur.")
+           
+            setTimeout(() => {
+              location.replace("/formulaire");
+            }, 4000);
         }else{
           console.log("probleme image") 
         }

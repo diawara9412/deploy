@@ -119,8 +119,11 @@ export class AjoutaffComponent implements OnInit {
         this.service.addAffaire(fg.value).subscribe((data)=>{
           if(data){
             console.log("bien")
-            this.service.presentToast("Entreprise ajouter avec succès")
-            location.replace("/ajoutaffaire")
+            this.service.presentToast("Entreprise ajouter avec succès. Veuillez attendre la confirmation de l'administrateur.")
+           
+            setTimeout(() => {
+              location.replace("/ajoutaffaire");
+            }, 4000);
             this.loading =false
         }else{
           console.log("probleme image") 

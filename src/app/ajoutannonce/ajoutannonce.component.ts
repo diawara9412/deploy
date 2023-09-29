@@ -120,8 +120,11 @@ export class AjoutannonceComponent implements OnInit {
         this.service.addAnnonce(fg.value).subscribe((data)=>{
           if(data){
             console.log("bien")
-            this.service.presentToast("Entreprise ajouter avec succès")
-            location.replace("/ajoutannonce")
+            this.service.presentToast("Annonce ajoutée avec succès. Veuillez attendre la confirmation de l'administrateur.")
+          
+            setTimeout(() => {
+              location.replace("/ajoutannonce");
+            }, 4000);
             this.loading=false
         }else{
           console.log("probleme image") 

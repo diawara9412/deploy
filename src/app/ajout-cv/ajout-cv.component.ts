@@ -156,8 +156,11 @@ export class AjoutCVComponent implements OnInit {
               
                 console.log(data);
                 console.log(fg.value);
-                this.service.presentToast("Offre ajouter avec succès")
-              location.replace("/ajoutCV")
+                this.service.presentToast("Offre ajouter avec succès. Veuillez attendre la confirmation de l'administrateur.")
+             
+              setTimeout(() => {
+                location.replace("/ajoutCV");
+              }, 4000);
               this.loading=false
             
             

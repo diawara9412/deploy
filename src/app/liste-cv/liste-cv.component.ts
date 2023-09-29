@@ -21,6 +21,7 @@ export class ListeCVComponent implements OnInit {
    user: any;
    loginData: any;
    p: number = 1;
+   reversedList: string[] = [];
    constructor(private service : ServiceService) { }
  
    ngOnInit(): void {
@@ -48,8 +49,12 @@ export class ListeCVComponent implements OnInit {
    this.service.AllCvByConfirmerTrue().subscribe({
      next : (data)=>{
        this.listCv =data
-       
+      
        console.log(this.listCv);
+       for (let i = this.listCv.length - 1; i >= 0; i--) {
+        this.reversedList.push(this.listCv[i]);
+      }
+      return this.reversedList;
        
      }
    })

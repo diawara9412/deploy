@@ -122,8 +122,11 @@ export class AjoutentreComponent implements OnInit {
         this.service.addEntreprise(fg.value).subscribe((data)=>{
           if(data){
             console.log("bien")
-            this.service.presentToast("Entreprise ajouter avec succès")
-            location.replace("/ajoutEntre")
+            this.service.presentToast("Entreprise ajouter avec succès. Veuillez attendre la confirmation de l'administrateur.")
+            
+            setTimeout(() => {
+              location.replace("/ajoutEntre");
+            }, 4000);
             this.loading=false
         }else{
           console.log("probleme image") 

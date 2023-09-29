@@ -109,8 +109,11 @@ export class AjoutappelComponent implements OnInit {
           if(data){
             console.log("bien")
             this.loading=false
-            this.service.presentToast("Offre ajouter avec succès")
-            location.replace("/Ajoutappel")
+            this.service.presentToast("Offre ajouter avec succès. Veuillez attendre la confirmation de l'administrateur.")
+            
+            setTimeout(() => {
+              location.replace("/Ajoutappel");
+            }, 4000);
         }else{
           console.log("probleme image") 
           this.loading=false

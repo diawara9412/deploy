@@ -20,7 +20,7 @@ export class ServiceService {
       icon: 'success',
       title: message,
       showConfirmButton: false,
-      timer: 3000
+      timer: 5000
     })
   }
   presentToastError(message: any){
@@ -290,4 +290,5 @@ addEvaluationAffaire(appelOffreId: number, rating: any) {
 addEvaluationAnnonce(appelOffreId: number, rating: any) {
   return this.http.post(this.url +"user/"+appelOffreId+"/evaluationsAnnonce",rating);
 }
+
 }

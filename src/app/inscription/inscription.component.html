@@ -106,26 +106,32 @@
     
                         <div class="input-field">
                             <label>Numero de telephone </label>
-                            <input formControlName="telephone1" type="number" placeholder="Saisir le numero de telephone" required>
+                            <input formControlName="telephone1" type="number" placeholder="Saisir le numero de telephone" required pattern="[0-9]{8}" >
                             <div *ngIf="formgroup.controls.telephone1.invalid && (formgroup.controls.telephone1.dirty || formgroup.controls.telephone1.touched) || submitted"
                             class="text-danger">
     
                                 <div style="font-size: 12px;" *ngIf="formgroup.controls.telephone1.errors?.['required']">
                                     Le numero de telephone est obligatoire
                                 </div>
+                                <div style="font-size: 12px;" *ngIf="formgroup.controls.telephone1.errors?.['pattern']">
+                                  Le numero de telephone doit contenir exactement 8 chiffres.
+                              </div>
     
                         </div>
                         </div>
                         
                         <div class="input-field">
                           <label>Deuxième numero de telephone </label>
-                          <input formControlName="telephone2" type="number" placeholder="Saisir le numero de telephone" required>
+                          <input formControlName="telephone2" type="number" placeholder="Saisir le numero de telephone" required pattern="[0-9]{8}">
                           <div *ngIf="formgroup.controls.telephone2.invalid && (formgroup.controls.telephone2.dirty || formgroup.controls.telephone2.touched) || submitted"
                           class="text-danger">
   
                               <div style="font-size: 12px;" *ngIf="formgroup.controls.telephone2.errors?.['required']">
                                   Le numero de telephone est obligatoire
                               </div>
+                              <div style="font-size: 12px;" *ngIf="formgroup.controls.telephone2.errors?.['pattern']">
+                                Le numero de telephone doit contenir exactement 8 chiffres.
+                            </div>
   
                       </div>
                       </div>
